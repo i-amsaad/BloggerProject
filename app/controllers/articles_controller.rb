@@ -23,6 +23,7 @@ def destroy
   flash.notice = "Article '#{a.title}' has been Destroyed!"
   a.destroy
   redirect_to articles_path
+  
 end
 
 def edit
