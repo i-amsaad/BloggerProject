@@ -10,7 +10,12 @@ def show
   @comment.article_id = @article.id
 end
 def new
-  @article=Article.new
+  if logged_in?
+  	@article=Article.new
+  else
+        flash.notice = "Please, Login to Create an Article!"
+  	redirect_to login_path
+  end
 end
 def create
   @article = Article.new(article_params)
